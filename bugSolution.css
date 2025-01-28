@@ -1,0 +1,23 @@
+Several solutions exist to address this issue:
+
+1. **Remove `!important`:** If possible, remove the `!important` declaration from `.child`.  This is often the best approach as `!important` should be avoided for maintainability.
+
+2. **Increase Specificity (Less Recommended):** Alternatively, if removing `!important` is not possible, you can increase the specificity of the `.child` selector.  This might involve adding more parent selectors or using more specific attribute selectors.  This is generally less preferred as it can lead to less maintainable code.
+
+3. **Refactor CSS:** The best solution is often to refactor your CSS structure to avoid these conflicting declarations.   This can involve restructuring your classes or selectors to avoid such a specific conflict.
+
+The following shows a refactored solution (bugSolution.css) by removing `!important`:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red;
+}
+
+.parent .child {
+  color: green;
+}
+```
